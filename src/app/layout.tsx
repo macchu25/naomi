@@ -25,17 +25,22 @@ const cinzel = Cinzel({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://naomi.link"),
-  title: "𝓝𝓪𝓸𝓶𝓲 ݁ ˖Ი𐑼⋆ | Fashion, Lifestyle & Influencer",
-  description: "Official link-in-bio for 𝓝𝓪𝓸𝓶𝓲 ݁ ˖Ი𐑼⋆. Fashion store, style inspiration, beauty tips, and free e-book.",
-  keywords: ["Naomi", "Fashion", "Lifestyle", "Influencer", "Linktree", "Style Inspo"],
+  title: "𝓝𝓪𝓸𝓶𝓲 ݁ ˖Ი𐑼⋆",
+  description: "Official link-in-bio for 𝓝𝓪𝓸𝓶𝓲 ݁ ˖Ი𐑼⋆. Fashion, Lifestyle & Solo Trips.",
+  keywords: ["Naomi", "Fashion", "Lifestyle", "Solo Trips", "Linktree"],
   openGraph: {
-    title: "𝓝𝓪𝓸𝓶𝓲 ݁ ˖Ი𐑼⋆ | Official Bio Links",
+    title: "𝓝𝓪𝓸𝓶𝓲 ݁ ˖Ი𐑼⋆",
     description: "Fashion inspo for the girl who's always on the go",
     images: [{ url: "/naomi_avatar_square.jpg", width: 800, height: 800, alt: "𝓝𝓪𝓸𝓶𝓲 ݁ ˖Ი𐑼⋆" }],
     type: "profile",
   },
   icons: {
-    icon: "/naomi_avatar_square.jpg",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/icon.png",
   },
 };
 
