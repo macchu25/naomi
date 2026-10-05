@@ -24,7 +24,7 @@ const cinzel = Cinzel({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://naomi.link"),
+  metadataBase: new URL("https://naomiii.vercel.app"),
   title: "𝓝𝓪𝓸𝓶𝓲 ݁ ˖Ი𐑼⋆",
   description: "Official link-in-bio for 𝓝𝓪𝓸𝓶𝓲 ݁ ˖Ი𐑼⋆. Fashion, Lifestyle & Solo Trips.",
   keywords: ["Naomi", "Fashion", "Lifestyle", "Solo Trips", "Linktree"],

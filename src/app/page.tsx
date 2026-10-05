@@ -204,63 +204,58 @@ export default function Page() {
     openDialog("Share Profile", content);
   };
 
-  // QR Code Dialog
+  // QR Code Dialog pointing to https://naomiii.vercel.app/
   const handleQRClick = () => {
     const qrContent = (
       <div className="flex flex-col items-center py-2">
-        <p className="text-sm text-slate-400 mb-4 text-center">
-          Scan to open {activeTheme === "ocean" ? "𝓝𝓪𝓸𝓶𝓲's" : "Maya Johnson's"} Bio
+        <p className="text-xs sm:text-sm text-sky-100/90 mb-4 text-center">
+          Quét mã bằng camera điện thoại để truy cập hồ sơ
         </p>
-        <div className="p-4 bg-white rounded-2xl shadow-2xl mb-4">
-          <svg className="w-40 h-40" viewBox="0 0 100 100" fill="#000000" shapeRendering="crispEdges">
-            <rect x="5" y="5" width="28" height="28" rx="4" fill="#000000" />
-            <rect x="9" y="9" width="20" height="20" rx="2" fill="#ffffff" />
-            <rect x="13" y="13" width="12" height="12" rx="2" fill="#000000" />
-            <rect x="67" y="5" width="28" height="28" rx="4" fill="#000000" />
-            <rect x="71" y="9" width="20" height="20" rx="2" fill="#ffffff" />
-            <rect x="75" y="13" width="12" height="12" rx="2" fill="#000000" />
-            <rect x="5" y="67" width="28" height="28" rx="4" fill="#000000" />
-            <rect x="9" y="71" width="20" height="20" rx="2" fill="#ffffff" />
-            <rect x="13" y="75" width="12" height="12" rx="2" fill="#000000" />
-            <rect x="37" y="7" width="6" height="6" rx="1" />
-            <rect x="47" y="7" width="6" height="6" rx="1" />
-            <rect x="57" y="7" width="6" height="6" rx="1" />
-            <rect x="37" y="17" width="6" height="6" rx="1" />
-            <rect x="51" y="17" width="6" height="6" rx="1" />
-            <rect x="7" y="37" width="6" height="6" rx="1" />
-            <rect x="17" y="37" width="6" height="6" rx="1" />
-            <rect x="27" y="37" width="6" height="6" rx="1" />
-            <rect x="37" y="37" width="6" height="6" rx="1" />
-            <rect x="47" y="37" width="6" height="6" rx="1" />
-            <rect x="67" y="37" width="6" height="6" rx="1" />
-            <rect x="77" y="37" width="6" height="6" rx="1" />
-            <rect x="87" y="37" width="6" height="6" rx="1" />
-            <rect x="17" y="47" width="6" height="6" rx="1" />
-            <rect x="27" y="47" width="6" height="6" rx="1" />
-            <rect x="47" y="47" width="6" height="6" rx="1" />
-            <rect x="57" y="47" width="6" height="6" rx="1" />
-            <rect x="77" y="47" width="6" height="6" rx="1" />
-            <rect x="7" y="57" width="6" height="6" rx="1" />
-            <rect x="37" y="57" width="6" height="6" rx="1" />
-            <rect x="47" y="57" width="6" height="6" rx="1" />
-            <rect x="67" y="57" width="6" height="6" rx="1" />
-            <rect x="87" y="57" width="6" height="6" rx="1" />
-            <rect x="37" y="67" width="6" height="6" rx="1" />
-            <rect x="57" y="67" width="6" height="6" rx="1" />
-            <rect x="77" y="67" width="6" height="6" rx="1" />
-            <rect x="47" y="77" width="6" height="6" rx="1" />
-            <rect x="67" y="77" width="6" height="6" rx="1" />
-            <rect x="87" y="77" width="6" height="6" rx="1" />
-            <rect x="37" y="87" width="6" height="6" rx="1" />
-            <rect x="57" y="87" width="6" height="6" rx="1" />
-            <rect x="77" y="87" width="6" height="6" rx="1" />
-          </svg>
+
+        {/* Real Branded QR Code */}
+        <div className="p-3 bg-white rounded-2xl shadow-2xl mb-4 group relative">
+          <img
+            src="/qr_naomi_branded.png"
+            alt="Mã QR https://naomiii.vercel.app/"
+            width={240}
+            height={240}
+            className="w-52 h-52 sm:w-60 sm:h-60 rounded-xl object-contain"
+          />
         </div>
-        <span className="text-xs text-slate-500">Fast access &bull; Compatible with all mobile cameras</span>
+
+        {/* URL Pill */}
+        <div className="flex items-center gap-2 mb-4 max-w-full">
+          <span className="text-[11px] sm:text-xs text-sky-200/90 font-mono bg-white/10 px-3.5 py-1.5 rounded-full border border-white/15 truncate select-all">
+            https://naomiii.vercel.app/
+          </span>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex items-center gap-2.5">
+          <a
+            href="/qr_naomi_branded.png"
+            download="qr_naomi.png"
+            className="px-4 py-2 bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 text-white text-xs font-medium rounded-full transition-all shadow-sm active:scale-95 flex items-center gap-1.5"
+          >
+            <span>Tải ảnh QR</span>
+          </a>
+
+          <button
+            onClick={() => {
+              navigator.clipboard.writeText("https://naomiii.vercel.app/");
+              showToast("Đã sao chép liên kết!");
+              closeDialog();
+            }}
+            className="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white text-xs font-semibold rounded-full transition-colors flex items-center gap-1.5 shadow-sm active:scale-95"
+          >
+            <Copy className="w-3.5 h-3.5" />
+            <span>Sao chép link</span>
+          </button>
+        </div>
       </div>
     );
 
-    openDialog("Scan QR Code", qrContent);
+    openDialog("Mã QR Cá Nhân", qrContent);
   };
 
   // Hikari Maeve Button Click
@@ -416,10 +411,21 @@ export default function Page() {
               Fashion inspo for the girl who&apos;s always on the go
             </p>
 
-            {/* Footer */}
-            <p className="text-[11px] sm:text-xs text-sky-200/60 mt-6 sm:mt-10 tracking-widest">
-              &copy; {new Date().getFullYear()} 𝓝𝓪𝓸𝓶𝓲 ݁ ˖Ი𐑼⋆
-            </p>
+            {/* Footer & QR Code Trigger */}
+            <div className="flex items-center justify-center gap-2.5 mt-6 sm:mt-10 select-none">
+              <p className="text-[11px] sm:text-xs text-sky-200/60 tracking-widest">
+                &copy; {new Date().getFullYear()} 𝓝𝓪𝓸𝓶𝓲 ݁ ˖Ი𐑼⋆
+              </p>
+              <span className="text-sky-200/40 text-[10px]">&bull;</span>
+              <button
+                onClick={handleQRClick}
+                className="flex items-center gap-1.5 text-[11px] sm:text-xs text-sky-200/85 hover:text-white transition-all bg-white/10 hover:bg-white/20 px-3 py-1 rounded-full border border-white/20 active:scale-95 shadow-sm"
+                title="Xem & tải mã QR của trang https://naomiii.vercel.app/"
+              >
+                <QrCode className="w-3.5 h-3.5" />
+                <span>Mã QR</span>
+              </button>
+            </div>
           </main>
         </div>
       )}
