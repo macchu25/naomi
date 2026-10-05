@@ -411,21 +411,10 @@ export default function Page() {
               Fashion inspo for the girl who&apos;s always on the go
             </p>
 
-            {/* Footer & QR Code Trigger */}
-            <div className="flex items-center justify-center gap-2.5 mt-6 sm:mt-10 select-none">
-              <p className="text-[11px] sm:text-xs text-sky-200/60 tracking-widest">
-                &copy; {new Date().getFullYear()} 𝓝𝓪𝓸𝓶𝓲 ݁ ˖Ი𐑼⋆
-              </p>
-              <span className="text-sky-200/40 text-[10px]">&bull;</span>
-              <button
-                onClick={handleQRClick}
-                className="flex items-center gap-1.5 text-[11px] sm:text-xs text-sky-200/85 hover:text-white transition-all bg-white/10 hover:bg-white/20 px-3 py-1 rounded-full border border-white/20 active:scale-95 shadow-sm"
-                title="Xem & tải mã QR của trang https://naomiii.vercel.app/"
-              >
-                <QrCode className="w-3.5 h-3.5" />
-                <span>Mã QR</span>
-              </button>
-            </div>
+            {/* Footer */}
+            <p className="text-[11px] sm:text-xs text-sky-200/60 mt-6 sm:mt-10 tracking-widest">
+              &copy; {new Date().getFullYear()} 𝓝𝓪𝓸𝓶𝓲 ݁ ˖Ი𐑼⋆
+            </p>
           </main>
         </div>
       )}
