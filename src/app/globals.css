@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-space: #07040d;
+}
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+  background-color: #07040d;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #07040d;
+  color: #f8fafc;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Custom Gradients and Effects */
+.avatar-conic {
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    #ff2d75 0deg,
+    #b82e86 70deg,
+    #8a2be2 140deg,
+    #38bdf8 210deg,
+    #ec4899 280deg,
+    #ff2d75 360deg
+  );
+}
+
+.bg-hero-gradient {
+  background: linear-gradient(108deg, #ff4365 0%, #e0246a 38%, #7e22ce 85%, #581c87 100%);
+}
+
+.bg-hero-gradient:hover {
+  background: linear-gradient(108deg, #ff5577 0%, #f0337c 38%, #9333ea 85%, #6b21a8 100%);
+}
+
+.card-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  transition: left 0.75s ease;
+  pointer-events: none;
+}
+
+.group:hover .card-shine {
+  left: 140%;
+}
